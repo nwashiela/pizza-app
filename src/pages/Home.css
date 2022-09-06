@@ -1,0 +1,23 @@
+.menu {   
+width: 1705px;
+height: 300px;
+left:0;
+top: 80px;
+display: flex;
+/* text-align: center; */
+justify-content:space-between;
+
+background: #C4BDEC;
+border-radius: 15px;
+
+}
+
+.pizza-1{
+    height: 293px;
+    object-fit: cover;
+    width: 316px;
+}
+ 
+/* .items{
+
+} */
