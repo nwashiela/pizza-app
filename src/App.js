@@ -36,8 +36,8 @@ const App = () => {
                   'content-type': 'application/json',
               }
           }).then((res) => {
-              setItems(res.data.data.items)
-              console.log(res.data.data.items)
+              setItems(res.data.data.pizzaApps)
+              console.log(res.data.data.pizzaApps)
           })
       }
       getAllPizzas()

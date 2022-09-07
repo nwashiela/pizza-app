@@ -20,9 +20,9 @@ function Small({items}) {
                     return false;
                 })
                 ?.map((x, i) => (
-                    <div>
+                    <div className="size"  key={i}> 
                         <div >
-                            <img style={{ width: "200px", padding: "20px" }} src={x?.photo?.imageURL} className="card-img-top  " alt="a product" />
+                            <img style={{ width: "200px", padding: "20px" }} src={x?.photo?.url} className="card-img-top  " alt="" />
                            
                         </div >
 
