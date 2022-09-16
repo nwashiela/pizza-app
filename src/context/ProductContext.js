@@ -7,8 +7,10 @@ export const ProductProvider = ({ children }) => {
     const [count, setCount] = useState(0);
     const [basket, setBasket] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [rightSidebar, setRightSidebar] = useState(false);
 
-    const values = { product, setProduct, count, setCount, basket, setBasket, searchTerm, setSearchTerm };
+
+    const values = { product, setProduct, count, setCount, basket, setBasket, searchTerm, setSearchTerm, rightSidebar, setRightSidebar };
 
     return <ProductContext.Provider value={values}>{children}</ProductContext.Provider>;
 };

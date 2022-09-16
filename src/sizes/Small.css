@@ -1,11 +1,10 @@
-.small{
-    max-width: 400px;
-    margin: 70px auto;
-    overflow: auto;
-    min-height: 250px;
-    border: 1px solid steelblue;
-    padding: 30px;
-    border-radius: 5px;
 
-    
+.smallList{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    margin: 70px auto;
+}
+.size{
+    padding-right: 90px;
 }

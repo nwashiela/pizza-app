@@ -4,6 +4,7 @@ import Navbar from "../src/components/Navbar";
 import { BrowserRouter as Router,Routes,  Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
+import ProductsInCart from "./components/ProductsInCart";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -26,7 +27,8 @@ const App = () => {
                       rating,
                       large,
                       medium,
-                      small
+                      small,
+                      pictures
                       
                     }
                   }
@@ -49,6 +51,7 @@ const App = () => {
         <Navbar />
           <Routes>
             <Route path="/" exact element={<Home items={items} />}></Route>
+            <Route path="/productsincart" element={<ProductsInCart />}></Route>
             <Route path="/checkout" element={<Checkout />}></Route>
           </Routes>
         
