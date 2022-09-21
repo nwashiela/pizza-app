@@ -14,7 +14,7 @@ function SearchBar() {
 <label>
   <input onChange={handleChange} type="text" name="name" />
 </label>
-<input type="submit" value="Submit" />
+
 </form>
     </>
   );

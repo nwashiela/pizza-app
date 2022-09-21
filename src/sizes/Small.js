@@ -6,24 +6,41 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+
+
 import { CardActionArea } from "@mui/material";
 
 function Small({ items }) {
 
-  const { product, count, setCount, basket, setBasket, searchTerm} = useContext(ProductContext);
+  const { count, setCount, basket, setBasket, searchTerm} = useContext(ProductContext);
 
-  const handleSubmit = () => {
+  const handleSubmit = (item) => {
+
+    const findItemByid = basket.find(Object => {
+      return Object.id === item.id
+    })
+
+    if (!findItemByid ) {
+     setBasket([...basket, {...item,qty:1}]);
+
+    }else{
+      findItemByid.qty++
+      setBasket([...basket])
+    }
+
     setCount(count + 1);
-    setBasket([...basket, product]);
+    
+    console.log(setBasket)
 };
 console.log("basket1", basket);
 
   return (
     <div className="small">
       <div className="smallList">
+      
         {items
 
-?.filter((val) => {
+ ?.filter((val) => {
             if (searchTerm === "") {
               return val;
             } else if (
@@ -35,7 +52,7 @@ console.log("basket1", basket);
             return false;
           })
           ?.map((item, i) => (
-            <div className="size" key={i} onClick={() => handleSubmit()} >
+            <div className="size" key={i}  >
               <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                   <CardMedia
@@ -51,6 +68,7 @@ console.log("basket1", basket);
                     <Typography gutterBottom variant="h6" component="div">
                       <strong> R{item?.small}</strong>
                     </Typography>
+                    <input type="submit" value="add to cart" onClick={() => handleSubmit(item)} />
                   </CardContent>
                 </CardActionArea>
               </Card>

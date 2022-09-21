@@ -1,0 +1,12 @@
+.cart{
+    font-size: 40px;
+   display: flex;
+   
+
+}
+.displayed-items{
+    display: flex;
+    flex-direction: row;
+  
+   
+}
