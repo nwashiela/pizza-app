@@ -5,12 +5,26 @@ const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
     const [product, setProduct] = useState([]);
     const [count, setCount] = useState(0);
+    const [countForEach, setCountForEach] = useState(0);
     const [basket, setBasket] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [rightSidebar, setRightSidebar] = useState(false);
 
 
-    const values = { product, setProduct, count, setCount, basket, setBasket, searchTerm, setSearchTerm, rightSidebar, setRightSidebar };
+    const values = { 
+        product, 
+        setProduct, 
+        count, 
+        setCount,
+         basket, 
+         setBasket, 
+         searchTerm,
+         setSearchTerm,
+          rightSidebar, 
+          setRightSidebar,
+          countForEach,
+           setCountForEach
+         };
 
     return <ProductContext.Provider value={values}>{children}</ProductContext.Provider>;
 };

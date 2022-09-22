@@ -8,15 +8,27 @@ import { Button } from "@mui/material";
 // import axios from "axios"
 
 function ProductsInCart() {
-  const { basket, count, setCount } = useContext(ProductContext);
+  const { basket, count,setCount } = useContext(ProductContext);
 
   //agregate function
   const sum = basket.reduce((total, currentvalue) => {
     return total + currentvalue.small;
   }, 0);
+  
+  const IncreaseNumber = (index) => {
 
-  const IncreaseNumber = () => {
-    setCount(count + 1);
+    const findItemByid = basket.find(Object => {
+      return Object.id === index.id
+    })
+
+    if (findItemByid){
+      findItemByid.qty++
+      setCount(count + 1, {...index,qty:1});
+     
+    }else{
+      setCount(count + 1, {...index,qty:1});
+    }
+   
   };
 
   const DecreaseNumber = () => {
@@ -32,7 +44,7 @@ function ProductsInCart() {
     <div>
       <div className="cart">
         <strong id="">Cart</strong>
-        <div className="count">{count}</div>
+        <div className="countForEach">{count}</div>
       </div>
 
       {basket.length === 0 ? (
