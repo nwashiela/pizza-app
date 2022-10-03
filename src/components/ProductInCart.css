@@ -1,12 +1,33 @@
+.main{
+    text-align: center;
+}
 .cart{
     font-size: 40px;
-   display: flex;
-   
+   text-align: center;
 
 }
 .displayed-items{
     display: flex;
     flex-direction: row;
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+.secondMain{
+    content: "";
+  display: table;
+  clear: both;
   
-   
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

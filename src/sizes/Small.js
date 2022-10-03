@@ -6,41 +6,41 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 import { CardActionArea } from "@mui/material";
 
-function Small({ items }) {
 
-  const { count, setCount, basket, setBasket, searchTerm} = useContext(ProductContext);
+
+function Small({ items }) {
+  const { count, setCount, basket, setBasket, searchTerm } =
+    useContext(ProductContext);
 
   const handleSubmit = (item) => {
+    const findItemByid = basket.find((Object) => {
+      return Object.id === item.id;
+    });
 
-    const findItemByid = basket.find(Object => {
-      return Object.id === item.id
-    })
-
-    if (!findItemByid ) {
-     setBasket([...basket, {...item,qty:1}]);
-
-    }else{
-      findItemByid.qty++
-      setBasket([...basket])
+    if (!findItemByid) {
+      setBasket([...basket, { ...item, qty: 1 }]);
+    } else {
+      findItemByid.qty++;
+      setBasket([...basket]);
     }
 
     setCount(count + 1);
-    
-    console.log(setBasket)
-};
-console.log("basket1", basket);
+
+    console.log(setBasket);
+  };
+  console.log("basket1", basket);
 
   return (
     <div className="small">
       <div className="smallList">
-      
         {items
 
- ?.filter((val) => {
+          ?.filter((val) => {
             if (searchTerm === "") {
               return val;
             } else if (
@@ -52,12 +52,12 @@ console.log("basket1", basket);
             return false;
           })
           ?.map((item, i) => (
-            <div className="size" key={i}  >
+            <div className="size" key={i}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    style={{ width: "200px",  height: "140px" }}
+                    style={{ width: "200px", height: "140px" }}
                     src={item?.pictures?.imageURL}
                     alt="green iguana"
                   />
@@ -68,7 +68,16 @@ console.log("basket1", basket);
                     <Typography gutterBottom variant="h6" component="div">
                       <strong> R{item?.small}</strong>
                     </Typography>
-                    <input type="submit" value="add to cart" onClick={() => handleSubmit(item)} />
+                    <Stack spacing={2} direction="row">
+                      <Button
+                         
+                        onClick={() => handleSubmit(item)}
+                        variant="contained"
+                        color= "secondary"
+                      >
+                        Add
+                      </Button>
+                    </Stack>
                   </CardContent>
                 </CardActionArea>
               </Card>
