@@ -2,7 +2,7 @@
   "name": "pizza-app",
   "version": "0.1.0",
   "homepage": "https://nwashiela.github.io/pizza-app",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
