@@ -48,6 +48,7 @@ const App = () => {
   return (
     <div> 
       <Router basename={process.env.PUBLIC_URL} >
+        
         <Navbar />
           <Routes>
             <Route path="/" exact element={<Home items={items} />}></Route>
